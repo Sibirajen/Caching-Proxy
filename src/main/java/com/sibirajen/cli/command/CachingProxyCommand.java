@@ -2,8 +2,11 @@ package com.sibirajen.cli.command;
 
 import com.sibirajen.cli.args.PortValidator;
 import com.sibirajen.cli.args.UrlValidator;
+import com.sibirajen.server.ProxyServer;
+import lombok.extern.log4j.Log4j2;
 import picocli.CommandLine;
 
+@Log4j2
 @CommandLine.Command(
         name = "caching-proxy",
         version = "Caching Proxy version 1.0",
@@ -29,6 +32,7 @@ public class CachingProxyCommand implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("Port: " + this.port + ", Origin: " + this.origin);
+        log.info("Starting proxy server on port {} with origin {}", port, origin);
+        ProxyServer.start(this.port, this.origin);
     }
 }
