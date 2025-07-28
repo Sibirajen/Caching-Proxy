@@ -19,7 +19,7 @@ public class LRUCache<K, V> implements Cache<K, V>{
     private final int capacity;
     private final Node head = new Node(null, null);
     private final Node tail = new Node(null, null);
-    private Map<K, Node> map;
+    private final Map<K, Node> map;
 
     public LRUCache() {
         this(DEFAULT_CAPACITY);
