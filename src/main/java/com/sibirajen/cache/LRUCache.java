@@ -76,6 +76,13 @@ public class LRUCache<K, V> implements Cache<K, V>{
         this.tail.prev = this.head;
     }
 
+    @Override
+    public boolean contains(K key) {
+        if (key == null)
+            throw new IllegalArgumentException("Key or value must not be null");
+        return this.map.containsKey(key);
+    }
+
     private void remove(Node node) {
         node.prev.next = node.next;
         node.next.prev = node.prev;
