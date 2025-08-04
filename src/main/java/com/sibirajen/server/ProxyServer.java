@@ -13,7 +13,6 @@ public class ProxyServer {
                 .setHandler(new ProxyHttpHandler(origin))
                 .build();
         server.start();
-        log.info("Proxy server started on http://{}:{} → {}", HOST, port, origin);
         log.info("Listening on http://{}:{}", HOST, port);
     }
 
