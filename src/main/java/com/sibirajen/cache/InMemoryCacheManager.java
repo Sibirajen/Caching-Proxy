@@ -1,5 +1,8 @@
 package com.sibirajen.cache;
 
+import lombok.ToString;
+
+@ToString
 public class InMemoryCacheManager<K, V> implements CacheManager<K, V>{
     private final Cache<K, V> cache = new LRUCache<>();
 
